@@ -55,7 +55,7 @@ find / -type f -iname flag*.*
 
 ●	**flag2.txt: fc3fd58dcdad9ab23faca6e9a36e581c**
 
-<img src=https://github.com/OmarG13/Raven1-Pen-Test/blob/main/Images/Picture6.png">
+<img src="https://github.com/OmarG13/Raven1-Pen-Test/blob/main/Images/Picture6.png">
 
 ____________________________________
 
@@ -89,7 +89,7 @@ Still within the MySQL database, we can find the password hashes of the users an
 
 ```
 Mysql -r root -p
-user wordpress;
+use wordpress;
 show tables;
 select * from wp_users;
 ```
