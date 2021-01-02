@@ -16,6 +16,7 @@ The following vulnerabilities were identified:
 3.	Wordpress – wp-config.php & sensitive information exposure - externally accessible
   a.	CWE-538 https://cwe.mitre.org/data/definitions/538.html 
   b.	Severity: High
+ ___________________________________________________
  
  ## Exploitation
  
@@ -31,6 +32,9 @@ By using inspect element, on each page we are able to locate **Flag1**
 
 ●	**flag1.txt: b9bbcb33e11b80be759c4e844862482d**
 
+____________________________________________
+
+
 We then proceed to explore further based on the information gathered thus far.
 Both Michael and Steven have been identified as users. 
 A quick integrity check of their passwords reveals that Michael is using his name as his password!
@@ -38,13 +42,16 @@ This allows us to SSH into Michael's account and search for flags, and sure enou
 
 ```
 ssh micahel@192.168.1.110
-username: michael
-password: michael
+```
+Password: michael
+
+```
 find / -type f -iname flag*.*
 ```
 
 ●	**flag2.txt: fc3fd58dcdad9ab23faca6e9a36e581c**
 
+____________________________________
 
 While still logged in as Michael, we navigate to the wp-config.php file.
 The file is available and accessible.
@@ -61,6 +68,8 @@ show tables;
 select * from wp_posts;
 ```
 ●	**Flag3.txt: afc01ab56b50591e7dccf93122770cd2**
+
+______________________________________
 
 
 Still within the MySQL database, we can find the password hashes of the users and crack them to gain access to Steven's account.
